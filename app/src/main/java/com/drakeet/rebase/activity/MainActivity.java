@@ -88,7 +88,7 @@ public class MainActivity extends ToolbarActivity {
         Retrofits.rebase().categories(Configs.USERNAME)
             .compose(this.<List<Category>>bindToLifecycle())
             .doOnNext(new Action1<List<Category>>() {
-                @Override public void call(List<Category> categorie) {
+                @Override public void call(List<Category> categories) {
                     Stores.db.single().delete(Category.class);
                     Stores.db.single().save(categories);
                 }
